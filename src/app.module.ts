@@ -5,7 +5,7 @@ import { CategoriesModule } from './features/categories/categories.module';
 import { configService } from './core/config/config.service';
 
 @Module({
-  imports: [   
+  imports: [
     TypeOrmModule.forRoot(configService.getTypeOrmConfig()),
     ProductsModule,
     CategoriesModule,

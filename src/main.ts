@@ -7,7 +7,7 @@ async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
   const options = new DocumentBuilder()
-    .setTitle('Nest js Ecommerce')
+    .setTitle('Exotic Whip Shop')
     .setDescription('API description')
     .setVersion('1.0')
     .build();

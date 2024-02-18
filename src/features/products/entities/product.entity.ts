@@ -1,5 +1,11 @@
 import { Category } from 'src/features/categories/entities/category.entity';
-import { Entity, Column, ManyToOne, BaseEntity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  ManyToOne,
+  BaseEntity,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity('products')
 export class Product extends BaseEntity {
@@ -24,5 +30,5 @@ export class Product extends BaseEntity {
   @ManyToOne(() => Category, (category) => category.products, {
     nullable: false,
   })
-  category: Category;
+  categoryId: Category;
 }

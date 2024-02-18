@@ -1,5 +1,11 @@
 import { Product } from 'src/features/products/entities/product.entity';
-import { Entity, Column, OneToMany, BaseEntity, PrimaryGeneratedColumn } from 'typeorm';
+import {
+  Entity,
+  Column,
+  OneToMany,
+  BaseEntity,
+  PrimaryGeneratedColumn,
+} from 'typeorm';
 
 @Entity('categories')
 export class Category extends BaseEntity {
@@ -15,6 +21,6 @@ export class Category extends BaseEntity {
   @Column({ nullable: true })
   imageUrl: string;
 
-  @OneToMany(() => Product, (product) => product.category)
+  @OneToMany(() => Product, (product) => product.categoryId)
   products: Product[];
 }

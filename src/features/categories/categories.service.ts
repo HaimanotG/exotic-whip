@@ -16,7 +16,7 @@ export class CategoriesService {
     try {
       const category = this.categoriesRepository.create(createCategoryDto);
       const savedCategory = await this.categoriesRepository.save(category);
-      
+
       return {
         success: true,
         message: 'Category created successfully',
@@ -36,7 +36,7 @@ export class CategoriesService {
   }
 
   async findOne(id: string) {
-    const result = await this.categoriesRepository.findOneBy({ id })
+    const result = await this.categoriesRepository.findOneBy({ id });
     if (!result) {
       throw new NotFoundException(`Category with id ${id} was not found.`);
     }
@@ -45,13 +45,17 @@ export class CategoriesService {
 
   async update(id: string, updateCategoryDto: UpdateCategoryDto) {
     try {
-      const result = await this.categoriesRepository.update({ id }, updateCategoryDto);
-  
+      const result = await this.categoriesRepository.update(
+        { id },
+        updateCategoryDto,
+      );
+
       if (result.affected === 0) {
         throw new NotFoundException(`Category with id ${id} was not found.`);
       }
-  
+
       return {
+        success: true,
         message: 'Category updated successfully',
         affectedRows: result.affected,
       };
@@ -61,15 +65,15 @@ export class CategoriesService {
   }
 
   async remove(id: string) {
-    const result = await this.categoriesRepository.delete({ id })
+    const result = await this.categoriesRepository.delete({ id });
 
     if (result.affected === 0) {
       throw new NotFoundException(`Category with id ${id} was not found.`);
     }
-    
+
     return {
       success: true,
-      message: "Category deleted successfully"
+      message: 'Category deleted successfully',
     };
   }
 }

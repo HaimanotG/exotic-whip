@@ -7,13 +7,13 @@ export class CreateCategoryDto {
   @MaxLength(50)
   name: string;
 
-  @ApiProperty({ type: 'string'})
+  @ApiProperty({ type: 'string' })
   @IsString()
   @IsOptional()
   @MaxLength(255)
   description?: string;
 
-  @ApiProperty({ type: 'string'})
+  @ApiProperty({ type: 'string' })
   @IsUrl()
   @IsOptional()
   imageUrl?: string;
