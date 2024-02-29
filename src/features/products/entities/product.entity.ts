@@ -2,9 +2,9 @@ import { Category } from 'src/features/categories/entities/category.entity';
 import {
   Entity,
   Column,
-  ManyToOne,
   BaseEntity,
   PrimaryGeneratedColumn,
+  OneToOne,
 } from 'typeorm';
 
 @Entity('products')
@@ -27,7 +27,7 @@ export class Product extends BaseEntity {
   @Column({ nullable: true })
   imageUrl: string;
 
-  @ManyToOne(() => Category, (category) => category.products, {
+  @OneToOne(() => Category, (category) => category.products, {
     nullable: false,
   })
   categoryId: Category;
