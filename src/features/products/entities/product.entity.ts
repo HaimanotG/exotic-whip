@@ -5,6 +5,7 @@ import {
   BaseEntity,
   PrimaryGeneratedColumn,
   OneToOne,
+  JoinColumn,
 } from 'typeorm';
 
 @Entity('products')
@@ -30,5 +31,6 @@ export class Product extends BaseEntity {
   @OneToOne(() => Category, (category) => category.products, {
     nullable: false,
   })
-  categoryId: Category;
+  @JoinColumn({ name: 'category_id', referencedColumnName: 'id' })
+  category: Category;
 }

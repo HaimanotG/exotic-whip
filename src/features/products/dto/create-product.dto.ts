@@ -28,6 +28,6 @@ export class CreateProductDto {
   imageUrl: string;
 
   @ApiProperty({ type: 'string' })
-  @IsString({ message: 'CategoryId is required' })
-  categoryId: Category;
+  @IsString({ message: 'category is required' })
+  category: Category;
 }

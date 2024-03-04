@@ -21,6 +21,6 @@ export class Category extends BaseEntity {
   @Column({ nullable: true })
   imageUrl: string;
 
-  @OneToMany(() => Product, (product) => product.categoryId)
+  @OneToMany(() => Product, (product) => product.category)
   products: Product[];
 }

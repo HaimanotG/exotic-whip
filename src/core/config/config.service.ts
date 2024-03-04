@@ -37,7 +37,8 @@ class ConfigService {
       },
       entities: [Category, Product, User],
       database: 'postgres',
-      synchronize: true, // Set to false in production
+      synchronize: true,
+      cache: true,
     };
   }
 }
